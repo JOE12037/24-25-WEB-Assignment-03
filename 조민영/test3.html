@@ -1,0 +1,332 @@
+<!doctype html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <style>
+      html,
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: #585858;
+      }
+
+      .container {
+        width: 400px;
+        height: 600px;
+        background-color: white;
+      }
+
+      img {
+        width: 400px;
+        height: 180px;
+      }
+
+      .top {
+        border-bottom: 1px solid #aba8a8;
+        margin-bottom: 10px;
+      }
+
+      .mid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      input {
+        border: 1px solid #aba8a8;
+        height: 30px;
+        width: 280px;
+        margin-bottom: 10px;
+        padding-left: 30px;
+      }
+
+      button {
+        border-radius: 5px;
+        height: 40px;
+        color: white;
+      }
+
+      .signUp {
+        border: 1px solid #03c75a;
+        background-color: #03c75a;
+        width: 200px;
+        margin-right: 40px;
+      }
+
+      .cancel {
+        border: 1px solid #f51d1d;
+        background-color: #f51d1d;
+        width: 100px;
+      }
+
+      .input1 span {
+        position: absolute;
+      }
+
+      .input2 span {
+        position: absolute;
+      }
+
+      .input3 span {
+        position: absolute;
+      }
+
+      .input4 span {
+        position: absolute;
+      }
+
+      .input5 span {
+        position: absolute;
+      }
+
+      .input6 span {
+        position: absolute;
+      }
+
+      #error {
+        color: #f51d1d;
+        font-size: smaller;
+      }
+
+      #error2 {
+        color: #f51d1d;
+        font-size: smaller;
+      }
+
+      #error3 {
+        color: #f51d1d;
+        font-size: smaller;
+      }
+
+      #error4 {
+        color: #f51d1d;
+        font-size: smaller;
+      }
+
+      #error5 {
+        color: #f51d1d;
+        font-size: smaller;
+      }
+
+      #error6 {
+        color: #f51d1d;
+        font-size: smaller;
+      }
+
+      span {
+        margin-top: 5px;
+      }
+
+      .scroll {
+        width: 300px;
+        height: 80px;
+        margin: 0 auto;
+        overflow-y: auto;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+        <img src="./logo.jpeg" />
+      </div>
+      <div class="mid">
+        <div class="input1">
+          <span class="material-symbols-outlined"> person </span>
+          <input type="text" class="id" id="idContent" placeholder="아이디" />
+        </div>
+        <div class="input2">
+          <span class="material-symbols-outlined"> lock </span>
+          <input
+            type="password"
+            class="pw"
+            id="pwContent"
+            placeholder="비밀번호"
+          />
+        </div>
+        <div class="input3">
+          <span class="material-symbols-outlined"> mail </span>
+          <input
+            type="text"
+            class="email"
+            id="emailContent"
+            placeholder="이메일"
+          />
+        </div>
+        <div class="input4">
+          <span class="material-symbols-outlined"> person </span>
+          <input type="text" class="name" id="nameContent" placeholder="이름" />
+        </div>
+        <div class="input5">
+          <span class="material-symbols-outlined"> badge </span>
+          <input
+            type="text"
+            class="birth"
+            id="birthContent"
+            placeholder="생년월일"
+          />
+        </div>
+        <div class="input6">
+          <span class="material-symbols-outlined"> call </span>
+          <input
+            type="text"
+            class="Number"
+            id="phoneContent"
+            placeholder="전화번호"
+          />
+        </div>
+        <div class="scroll">
+          <div id="error"></div>
+          <div id="error2"></div>
+          <div id="error3"></div>
+          <div id="error4"></div>
+          <div id="error5"></div>
+          <div id="error6"></div>
+        </div>
+      </div>
+      <div class="bottom">
+        <button class="signUp" onclick="signUpTo()" type="submit">
+          회원가입
+        </button>
+        <button class="cancel" type="reset">닫기</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    let birthGuide = /^\d{4}-\d{2}-\d{2}$/;
+    let emailGuide = /^[a-zA-Z0-9]+@+[a-z]+(?:\.com)$/;
+    let phoneGuide = /^\d+$/;
+
+    let errorMsg = document.getElementById("error");
+    let errorMsg2 = document.getElementById("error2");
+    let errorMsg3 = document.getElementById("error3");
+    let errorMsg4 = document.getElementById("error4");
+    let errorMsg5 = document.getElementById("error5");
+    let errorMsg6 = document.getElementById("error6");
+
+    let count = 0;
+
+    let errorMsgList = {
+      id: {
+        fail: "아이디는 3 글자 이상입니다.",
+        null: "아이디 위 입력항목 모두 공백일 수 없습니다",
+      },
+      pw: {
+        fail: "비밀번호는 6 글자 이상입니다",
+        null: "비번 위 입력항목 모두 공백일 수 없습니다",
+      },
+      email: {
+        fail: "이메일 형식을 지켜야합니다",
+        null: "이메일 위 입력항목 모두 공백일 수 없습니다",
+      },
+      phone: {
+        fail: "전화번호는 -없이 숫자 11자입니다",
+        null: "전화번호 위 입력항목 모두 공백일 수 없습니다",
+      },
+      birth: {
+        fail: "생년월일은 2002-04-14와 같은 형식입니다",
+        null: "생년월일위 입력항목 모두 공백일 수 없습니다",
+      },
+      name: {
+        null: "이름 위 입력항목 모두 공백일 수 없습니다",
+      },
+    };
+
+    function idCheck(value) {
+      if (value === "" || value === " ") {
+        errorMsg.textContent = errorMsgList.id.null;
+      } else if (value.length < 4) {
+        errorMsg.textContent = errorMsgList.id.fail;
+      } else {
+        count++;
+      }
+    }
+    function pwCheck(value) {
+      if (value === "" || value === " ") {
+        errorMsg2.textContent = errorMsgList.pw.null;
+      } else if (value.length < 7) {
+        errorMsg2.textContent = errorMsgList.pw.fail;
+      } else {
+        return count++;
+      }
+    }
+    function phoneCheck(value) {
+      if (value === "" || value === " ") {
+        errorMsg3.textContent = errorMsgList.phone.null;
+      } else if (!phoneGuide.test(value)) {
+        errorMsg3.textContent = errorMsgList.phone.fail;
+      } else {
+        count++;
+      }
+    }
+
+    function birthCheck(value) {
+      if (value === "" || value === " ") {
+        errorMsg4.textContent = errorMsgList.birth.null;
+      } else if (!birthGuide.test(value)) {
+        errorMsg4.textContent = errorMsgList.birth.fail;
+      } else {
+        count++;
+      }
+    }
+    function emailCheck(value) {
+      if (value === "" || value === " ") {
+        errorMsg5.textContent = errorMsgList.email.null;
+      } else if (!emailGuide.test(value)) {
+        errorMsg5.textContent = errorMsgList.email.fail;
+      } else {
+        count++;
+      }
+    }
+    function nameCheck(value) {
+      if (value === "" || value === " ") {
+        errorMsg6.textContent = errorMsgList.name.null;
+      } else {
+        count++;
+      }
+    }
+
+    function countCheck(count) {
+      if (count == 6) {
+        location.href = "success.html";
+      }
+    }
+
+    function func1(callback) {
+      let id = document.getElementById("idContent").value;
+      let pw = document.getElementById("pwContent").value;
+      let email = document.getElementById("emailContent").value;
+      let birth = document.getElementById("birthContent").value;
+      let phone = document.getElementById("phoneContent").value;
+      let name = document.getElementById("nameContent").value;
+      idCheck(id);
+      pwCheck(pw);
+      emailCheck(email);
+      nameCheck(name);
+      birthCheck(birth);
+      phoneCheck(phone);
+
+      callback(count);
+    }
+
+    function signUpTo() {
+      func1(countCheck);
+    }
+
+    //하나씩 트루 뱉어내면 다음 함수로 넘어가기?(전부 검사 못 하는 문제 발생) vs  전부 다 트루면 마지막에 석세스로 넘어가는 함수 호출하기?->함수 안에서 함수 전부 호출하는 거 따로/ 함수가 전부 다 트루면 석세스로 넘어가는 함수 따로.
+  </script>
+</html>
