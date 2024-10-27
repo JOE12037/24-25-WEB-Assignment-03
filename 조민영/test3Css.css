@@ -1,0 +1,146 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #585858;
+}
+
+.container {
+  visibility: hidden;
+  width: 400px;
+  height: 600px;
+  background-color: white;
+  margin-top: 60px;
+}
+
+img {
+  width: 400px;
+  height: 180px;
+}
+
+.topofT {
+  position: absolute;
+  top: 1%;
+  left: 0%;
+  border-bottom: 3px solid rgb(137, 135, 135);
+  width: 100%;
+}
+
+.top {
+  border-bottom: 1px solid #aba8a8;
+  margin-bottom: 10px;
+}
+
+.mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border: 1px solid #aba8a8;
+  height: 30px;
+  width: 280px;
+  margin-bottom: 10px;
+  padding-left: 30px;
+}
+
+button {
+  border-radius: 5px;
+  height: 40px;
+  color: white;
+}
+
+.signUp {
+  border: 1px solid #03c75a;
+  background-color: #03c75a;
+  width: 200px;
+  margin-right: 40px;
+}
+
+.cancel {
+  border: 1px solid #f51d1d;
+  background-color: #f51d1d;
+  width: 100px;
+}
+
+.input1 span {
+  position: absolute;
+}
+
+.input2 span {
+  position: absolute;
+}
+
+.input3 span {
+  position: absolute;
+}
+
+.input4 span {
+  position: absolute;
+}
+
+.input5 span {
+  position: absolute;
+}
+
+.input6 span {
+  position: absolute;
+}
+
+#error {
+  color: #f51d1d;
+  font-size: smaller;
+}
+
+#error2 {
+  color: #f51d1d;
+  font-size: smaller;
+}
+
+#error3 {
+  color: #f51d1d;
+  font-size: smaller;
+}
+
+#error4 {
+  color: #f51d1d;
+  font-size: smaller;
+}
+
+#error5 {
+  color: #f51d1d;
+  font-size: smaller;
+}
+
+#error6 {
+  color: #f51d1d;
+  font-size: smaller;
+}
+
+span {
+  margin-top: 5px;
+}
+
+.scroll {
+  width: 300px;
+  height: 80px;
+  margin: 0 auto;
+  overflow-y: auto;
+  margin-bottom: 5px;
+}
+
+.signUpBt {
+  float: right;
+  border: 0px;
+  background-color: #585858;
+}

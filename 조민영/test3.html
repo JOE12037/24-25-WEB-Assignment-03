@@ -5,142 +5,13 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-
-    <style>
-      html,
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        background-color: #585858;
-      }
-
-      .container {
-        width: 400px;
-        height: 600px;
-        background-color: white;
-      }
-
-      img {
-        width: 400px;
-        height: 180px;
-      }
-
-      .top {
-        border-bottom: 1px solid #aba8a8;
-        margin-bottom: 10px;
-      }
-
-      .mid {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
-
-      .bottom {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      input {
-        border: 1px solid #aba8a8;
-        height: 30px;
-        width: 280px;
-        margin-bottom: 10px;
-        padding-left: 30px;
-      }
-
-      button {
-        border-radius: 5px;
-        height: 40px;
-        color: white;
-      }
-
-      .signUp {
-        border: 1px solid #03c75a;
-        background-color: #03c75a;
-        width: 200px;
-        margin-right: 40px;
-      }
-
-      .cancel {
-        border: 1px solid #f51d1d;
-        background-color: #f51d1d;
-        width: 100px;
-      }
-
-      .input1 span {
-        position: absolute;
-      }
-
-      .input2 span {
-        position: absolute;
-      }
-
-      .input3 span {
-        position: absolute;
-      }
-
-      .input4 span {
-        position: absolute;
-      }
-
-      .input5 span {
-        position: absolute;
-      }
-
-      .input6 span {
-        position: absolute;
-      }
-
-      #error {
-        color: #f51d1d;
-        font-size: smaller;
-      }
-
-      #error2 {
-        color: #f51d1d;
-        font-size: smaller;
-      }
-
-      #error3 {
-        color: #f51d1d;
-        font-size: smaller;
-      }
-
-      #error4 {
-        color: #f51d1d;
-        font-size: smaller;
-      }
-
-      #error5 {
-        color: #f51d1d;
-        font-size: smaller;
-      }
-
-      #error6 {
-        color: #f51d1d;
-        font-size: smaller;
-      }
-
-      span {
-        margin-top: 5px;
-      }
-
-      .scroll {
-        width: 300px;
-        height: 80px;
-        margin: 0 auto;
-        overflow-y: auto;
-        margin-bottom: 5px;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="test3Css.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="topofT">
+      <button class="signUpBt" onClick="show()">회원가입</button>
+    </div>
+    <div class="container" id="container">
       <div class="top">
         <img src="./logo.jpeg" />
       </div>
@@ -202,7 +73,7 @@
         <button class="signUp" onclick="signUpTo()" type="submit">
           회원가입
         </button>
-        <button class="cancel" type="reset">닫기</button>
+        <button class="cancel" onClick="show()">닫기</button>
       </div>
     </div>
   </body>
@@ -223,26 +94,26 @@
     let errorMsgList = {
       id: {
         fail: "아이디는 3 글자 이상입니다.",
-        null: "아이디 위 입력항목 모두 공백일 수 없습니다",
+        null: "위 입력항목 모두 공백일 수 없습니다",
       },
       pw: {
         fail: "비밀번호는 6 글자 이상입니다",
-        null: "비번 위 입력항목 모두 공백일 수 없습니다",
+        null: "위 입력항목 모두 공백일 수 없습니다",
       },
       email: {
         fail: "이메일 형식을 지켜야합니다",
-        null: "이메일 위 입력항목 모두 공백일 수 없습니다",
+        null: "위 입력항목 모두 공백일 수 없습니다",
       },
       phone: {
         fail: "전화번호는 -없이 숫자 11자입니다",
-        null: "전화번호 위 입력항목 모두 공백일 수 없습니다",
+        null: "위 입력항목 모두 공백일 수 없습니다",
       },
       birth: {
         fail: "생년월일은 2002-04-14와 같은 형식입니다",
-        null: "생년월일위 입력항목 모두 공백일 수 없습니다",
+        null: "위 입력항목 모두 공백일 수 없습니다",
       },
       name: {
-        null: "이름 위 입력항목 모두 공백일 수 없습니다",
+        null: "위 입력항목 모두 공백일 수 없습니다",
       },
     };
 
@@ -327,6 +198,13 @@
       func1(countCheck);
     }
 
-    //하나씩 트루 뱉어내면 다음 함수로 넘어가기?(전부 검사 못 하는 문제 발생) vs  전부 다 트루면 마지막에 석세스로 넘어가는 함수 호출하기?->함수 안에서 함수 전부 호출하는 거 따로/ 함수가 전부 다 트루면 석세스로 넘어가는 함수 따로.
+    function show() {
+      let container = document.getElementById("container");
+      if (container.style.visibility == "hidden") {
+        container.style.visibility = "visible";
+      } else {
+        container.style.visibility = "hidden";
+      }
+    }
   </script>
 </html>
