@@ -12,75 +12,70 @@
       <button class="signUpBt" onClick="show()">회원가입</button>
     </div>
     <div class="container" id="container">
-      <form>
-        <div class="top">
-          <img src="./logo.jpeg" />
+      <div class="top">
+        <img src="./logo.jpeg" />
+      </div>
+      <div class="mid">
+        <div class="input1">
+          <span class="material-symbols-outlined"> person </span>
+          <input type="text" class="id" id="idContent" placeholder="아이디" />
         </div>
-        <div class="mid">
-          <div class="input1">
-            <span class="material-symbols-outlined"> person </span>
-            <input type="text" class="id" id="idContent" placeholder="아이디" />
-          </div>
-          <div class="input2">
-            <span class="material-symbols-outlined"> lock </span>
-            <input
-              type="password"
-              class="pw"
-              id="pwContent"
-              placeholder="비밀번호"
-            />
-          </div>
-          <div class="input3">
-            <span class="material-symbols-outlined"> mail </span>
-            <input
-              type="text"
-              class="email"
-              id="emailContent"
-              placeholder="이메일"
-            />
-          </div>
-          <div class="input4">
-            <span class="material-symbols-outlined"> person </span>
-            <input
-              type="text"
-              class="name"
-              id="nameContent"
-              placeholder="이름"
-            />
-          </div>
-          <div class="input5">
-            <span class="material-symbols-outlined"> badge </span>
-            <input
-              type="text"
-              class="birth"
-              id="birthContent"
-              placeholder="생년월일"
-            />
-          </div>
-          <div class="input6">
-            <span class="material-symbols-outlined"> call </span>
-            <input
-              type="text"
-              class="Number"
-              id="phoneContent"
-              placeholder="전화번호"
-            />
-          </div>
-          <div class="scroll">
-            <div id="error"></div>
-            <div id="error2"></div>
-            <div id="error3"></div>
-            <div id="error4"></div>
-            <div id="error5"></div>
-            <div id="error6"></div>
-            <div id="error7"></div>
-          </div>
+        <div class="input2">
+          <span class="material-symbols-outlined"> lock </span>
+          <input
+            type="password"
+            class="pw"
+            id="pwContent"
+            placeholder="비밀번호"
+          />
         </div>
-        <div class="bottom">
-          <button class="signUp" onclick="signUpTo()">회원가입</button>
-          <button class="cancel" onClick="show()" type="reset">닫기</button>
+        <div class="input3">
+          <span class="material-symbols-outlined"> mail </span>
+          <input
+            type="text"
+            class="email"
+            id="emailContent"
+            placeholder="이메일"
+          />
         </div>
-      </form>
+        <div class="input4">
+          <span class="material-symbols-outlined"> person </span>
+          <input type="text" class="name" id="nameContent" placeholder="이름" />
+        </div>
+        <div class="input5">
+          <span class="material-symbols-outlined"> badge </span>
+          <input
+            type="text"
+            class="birth"
+            id="birthContent"
+            placeholder="생년월일"
+          />
+        </div>
+        <div class="input6">
+          <span class="material-symbols-outlined"> call </span>
+          <input
+            type="text"
+            class="Number"
+            id="phoneContent"
+            placeholder="전화번호"
+          />
+        </div>
+        <div class="scroll">
+          <div id="error"></div>
+          <div id="error2"></div>
+          <div id="error3"></div>
+          <div id="error4"></div>
+          <div id="error5"></div>
+          <div id="error6"></div>
+          <div id="error7"></div>
+        </div>
+      </div>
+      <div class="bottom">
+        <button class="signUp" onclick="signUpTo()" type="submit">
+          회원가입
+        </button>
+        <button class="cancel" onClick="show()" type="reset">닫기</button>
+      </div>
     </div>
   </body>
   <script>
