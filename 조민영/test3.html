@@ -73,7 +73,7 @@
         <button class="signUp" onclick="signUpTo()" type="submit">
           회원가입
         </button>
-        <button class="cancel" onClick="show()">닫기</button>
+        <button class="cancel" onClick="show()" type="reset">닫기</button>
       </div>
     </div>
   </body>
@@ -117,7 +117,7 @@
 
     function idCheck(value) {
       if (value === "" || value === " ") {
-        emptyCheck(value);
+        emptyCheck(value, errorMsg);
       } else if (value.length < 4) {
         errorMsg.textContent = errorMsgList.id.fail;
       } else {
@@ -126,7 +126,7 @@
     }
     function pwCheck(value) {
       if (value === "" || value === " ") {
-        emptyCheck(value);
+        emptyCheck(value, errorMsg2);
       } else if (value.length < 7) {
         errorMsg2.textContent = errorMsgList.pw.fail;
       } else {
@@ -135,7 +135,7 @@
     }
     function phoneCheck(value) {
       if (value === "" || value === " ") {
-        emptyCheck(value);
+        emptyCheck(value, errorMsg3);
       } else if (!phoneGuide.test(value)) {
         errorMsg3.textContent = errorMsgList.phone.fail;
       } else {
@@ -145,7 +145,7 @@
 
     function birthCheck(value) {
       if (value === "" || value === " ") {
-        emptyCheck(value);
+        emptyCheck(value, errorMsg4);
       } else if (!birthGuide.test(value)) {
         errorMsg4.textContent = errorMsgList.birth.fail;
       } else {
@@ -154,7 +154,7 @@
     }
     function emailCheck(value) {
       if (value === "" || value === " ") {
-        emptyCheck(value);
+        emptyCheck(value, errorMsg5);
       } else if (!emailGuide.test(value)) {
         errorMsg5.textContent = errorMsgList.email.fail;
       } else {
@@ -169,19 +169,28 @@
       }
     }
 
-    function emptyCheck(value) {
+    function emptyCheck(value, error) {
       if (value === "" || value === " ") {
-        errorMsg.textContent = errorMsgList.empty.null;
+        error.textContent = errorMsgList.empty.null;
       }
     }
 
     function countCheck(count) {
-      if (count == 6) {
+      if (count === 6) {
         location.href = "success.html";
+      } else {
+        console.log("Some checks failed, count:", count);
       }
     }
 
     function func1(callback) {
+      count = 0;
+      errorMsg.textContent = "";
+      errorMsg2.textContent = "";
+      errorMsg3.textContent = "";
+      errorMsg4.textContent = "";
+      errorMsg5.textContent = "";
+      errorMsg6.textContent = "";
       let id = document.getElementById("idContent").value;
       let pw = document.getElementById("pwContent").value;
       let email = document.getElementById("emailContent").value;
