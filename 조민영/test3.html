@@ -12,69 +12,75 @@
       <button class="signUpBt" onClick="show()">회원가입</button>
     </div>
     <div class="container" id="container">
-      <div class="top">
-        <img src="./logo.jpeg" />
-      </div>
-      <div class="mid">
-        <div class="input1">
-          <span class="material-symbols-outlined"> person </span>
-          <input type="text" class="id" id="idContent" placeholder="아이디" />
+      <form>
+        <div class="top">
+          <img src="./logo.jpeg" />
         </div>
-        <div class="input2">
-          <span class="material-symbols-outlined"> lock </span>
-          <input
-            type="password"
-            class="pw"
-            id="pwContent"
-            placeholder="비밀번호"
-          />
+        <div class="mid">
+          <div class="input1">
+            <span class="material-symbols-outlined"> person </span>
+            <input type="text" class="id" id="idContent" placeholder="아이디" />
+          </div>
+          <div class="input2">
+            <span class="material-symbols-outlined"> lock </span>
+            <input
+              type="password"
+              class="pw"
+              id="pwContent"
+              placeholder="비밀번호"
+            />
+          </div>
+          <div class="input3">
+            <span class="material-symbols-outlined"> mail </span>
+            <input
+              type="text"
+              class="email"
+              id="emailContent"
+              placeholder="이메일"
+            />
+          </div>
+          <div class="input4">
+            <span class="material-symbols-outlined"> person </span>
+            <input
+              type="text"
+              class="name"
+              id="nameContent"
+              placeholder="이름"
+            />
+          </div>
+          <div class="input5">
+            <span class="material-symbols-outlined"> badge </span>
+            <input
+              type="text"
+              class="birth"
+              id="birthContent"
+              placeholder="생년월일"
+            />
+          </div>
+          <div class="input6">
+            <span class="material-symbols-outlined"> call </span>
+            <input
+              type="text"
+              class="Number"
+              id="phoneContent"
+              placeholder="전화번호"
+            />
+          </div>
+          <div class="scroll">
+            <div id="error"></div>
+            <div id="error2"></div>
+            <div id="error3"></div>
+            <div id="error4"></div>
+            <div id="error5"></div>
+            <div id="error6"></div>
+            <div id="error7"></div>
+          </div>
         </div>
-        <div class="input3">
-          <span class="material-symbols-outlined"> mail </span>
-          <input
-            type="text"
-            class="email"
-            id="emailContent"
-            placeholder="이메일"
-          />
+        <div class="bottom">
+          <button class="signUp" onclick="signUpTo()">회원가입</button>
+          <button class="cancel" onClick="show()" type="reset">닫기</button>
         </div>
-        <div class="input4">
-          <span class="material-symbols-outlined"> person </span>
-          <input type="text" class="name" id="nameContent" placeholder="이름" />
-        </div>
-        <div class="input5">
-          <span class="material-symbols-outlined"> badge </span>
-          <input
-            type="text"
-            class="birth"
-            id="birthContent"
-            placeholder="생년월일"
-          />
-        </div>
-        <div class="input6">
-          <span class="material-symbols-outlined"> call </span>
-          <input
-            type="text"
-            class="Number"
-            id="phoneContent"
-            placeholder="전화번호"
-          />
-        </div>
-        <div class="scroll">
-          <div id="error"></div>
-          <div id="error2"></div>
-          <div id="error3"></div>
-          <div id="error4"></div>
-          <div id="error5"></div>
-          <div id="error6"></div>
-        </div>
-      </div>
-      <div class="bottom">
-        <button class="signUp" onclick="signUpTo()" type="submit">
-          회원가입
-        </button>
-        <button class="cancel" onClick="show()" type="reset">닫기</button>
-      </div>
+      </form>
     </div>
   </body>
   <script>
@@ -88,6 +94,7 @@
     let errorMsg4 = document.getElementById("error4");
     let errorMsg5 = document.getElementById("error5");
     let errorMsg6 = document.getElementById("error6");
+    let errorMsg7 = document.getElementById("error7");
 
     let count = 0;
 
@@ -99,7 +106,7 @@
         fail: "비밀번호는 6 글자 이상입니다",
       },
       email: {
-        fail: "이메일 형식을 지켜야합니다",
+        fail: "유효한 이메일을 입력하세요",
       },
       phone: {
         fail: "전화번호는 -없이 숫자 11자입니다",
@@ -118,6 +125,7 @@
     function idCheck(value) {
       if (value === "" || value === " ") {
         emptyCheck(value);
+        errorMsg.textContent = errorMsgList.id.fail;
       } else if (value.length < 4) {
         errorMsg.textContent = errorMsgList.id.fail;
       } else {
@@ -127,6 +135,7 @@
     function pwCheck(value) {
       if (value === "" || value === " ") {
         emptyCheck(value);
+        errorMsg2.textContent = errorMsgList.pw.fail;
       } else if (value.length < 7) {
         errorMsg2.textContent = errorMsgList.pw.fail;
       } else {
@@ -136,6 +145,7 @@
     function phoneCheck(value) {
       if (value === "" || value === " ") {
         emptyCheck(value);
+        errorMsg3.textContent = errorMsgList.phone.fail;
       } else if (!phoneGuide.test(value)) {
         errorMsg3.textContent = errorMsgList.phone.fail;
       } else {
@@ -146,6 +156,7 @@
     function birthCheck(value) {
       if (value === "" || value === " ") {
         emptyCheck(value);
+        errorMsg4.textContent = errorMsgList.birth.fail;
       } else if (!birthGuide.test(value)) {
         errorMsg4.textContent = errorMsgList.birth.fail;
       } else {
@@ -155,6 +166,7 @@
     function emailCheck(value) {
       if (value === "" || value === " ") {
         emptyCheck(value);
+        errorMsg5.textContent = errorMsgList.email.fail;
       } else if (!emailGuide.test(value)) {
         errorMsg5.textContent = errorMsgList.email.fail;
       } else {
@@ -163,6 +175,7 @@
     }
     function nameCheck(value) {
       if (value === "" || value === " ") {
+        emptyCheck(value);
         errorMsg6.textContent = errorMsgList.name.null;
       } else {
         count++;
@@ -171,7 +184,7 @@
 
     function emptyCheck(value) {
       if (value === "" || value === " ") {
-        errorMsg.textContent = errorMsgList.empty.null;
+        errorMsg7.textContent = errorMsgList.empty.null;
       }
     }
 
@@ -191,6 +204,7 @@
       errorMsg4.textContent = "";
       errorMsg5.textContent = "";
       errorMsg6.textContent = "";
+      errorMsg7.textContent = "";
       let id = document.getElementById("idContent").value;
       let pw = document.getElementById("pwContent").value;
       let email = document.getElementById("emailContent").value;

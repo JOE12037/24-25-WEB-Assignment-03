@@ -127,6 +127,11 @@ button {
   font-size: smaller;
 }
 
+#error7 {
+  color: #f51d1d;
+  font-size: smaller;
+}
+
 span {
   margin-top: 5px;
 }
