@@ -117,7 +117,7 @@
 
     function idCheck(value) {
       if (value === "" || value === " ") {
-        emptyCheck(value, errorMsg);
+        emptyCheck(value);
       } else if (value.length < 4) {
         errorMsg.textContent = errorMsgList.id.fail;
       } else {
@@ -126,7 +126,7 @@
     }
     function pwCheck(value) {
       if (value === "" || value === " ") {
-        emptyCheck(value, errorMsg2);
+        emptyCheck(value);
       } else if (value.length < 7) {
         errorMsg2.textContent = errorMsgList.pw.fail;
       } else {
@@ -135,7 +135,7 @@
     }
     function phoneCheck(value) {
       if (value === "" || value === " ") {
-        emptyCheck(value, errorMsg3);
+        emptyCheck(value);
       } else if (!phoneGuide.test(value)) {
         errorMsg3.textContent = errorMsgList.phone.fail;
       } else {
@@ -145,7 +145,7 @@
 
     function birthCheck(value) {
       if (value === "" || value === " ") {
-        emptyCheck(value, errorMsg4);
+        emptyCheck(value);
       } else if (!birthGuide.test(value)) {
         errorMsg4.textContent = errorMsgList.birth.fail;
       } else {
@@ -154,7 +154,7 @@
     }
     function emailCheck(value) {
       if (value === "" || value === " ") {
-        emptyCheck(value, errorMsg5);
+        emptyCheck(value);
       } else if (!emailGuide.test(value)) {
         errorMsg5.textContent = errorMsgList.email.fail;
       } else {
@@ -169,9 +169,9 @@
       }
     }
 
-    function emptyCheck(value, error) {
+    function emptyCheck(value) {
       if (value === "" || value === " ") {
-        error.textContent = errorMsgList.empty.null;
+        errorMsg.textContent = errorMsgList.empty.null;
       }
     }
 
